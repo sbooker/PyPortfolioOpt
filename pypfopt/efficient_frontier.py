@@ -209,7 +209,7 @@ class EfficientFrontier(base_optimizer.BaseScipyOptimizer):
         if not isinstance(risk_free_rate, (int, float)):
             raise ValueError("risk_free_rate should be numeric")
 
-        args = (self.expected_returns, self.cov_matrix, self.gamma, risk_free_rate)
+        args = (self.expected_returns)
         target_constraint = {
             "type": "eq",
             "fun": lambda w: target_risk ** 2
@@ -233,7 +233,7 @@ class EfficientFrontier(base_optimizer.BaseScipyOptimizer):
             constraints = self.constraints + [target_constraint]
 
         result = sco.minimize(
-            objective_functions.negative_sharpe,
+            objective_functions.negative_mean_return,
             x0=self.initial_guess,
             args=args,
             method=self.opt_method,
