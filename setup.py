@@ -35,7 +35,7 @@ setup(
         "Topic :: Scientific/Engineering :: Mathematics",
     ],
     keywords="portfolio finance optimization quant trading investing",
-    install_requires=["numpy", "pandas", "scipy"],
+    install_requires=["numpy", "pandas", "scipy", "scikit-learn"],
     setup_requires=["pytest-runner"],
     tests_require=["pytest"],
     python_requires=">=3",
